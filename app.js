@@ -268,7 +268,7 @@ function setupAiPanel() {
     
     const index = STUDENTS.findIndex(s => s.id === selectedStudentForAi.id);
     const alias = "학생 " + String.fromCharCode(65 + index);
-    const gradeSummary = Object.entries(selectedStudentForAi.grades).map(([k, v]) => \`\${k}: \${v}\`).join(", ");
+    const gradeSummary = Object.entries(selectedStudentForAi.grades).map(([k, v]) => `${k}: ${v}`).join(", ");
     const learningTraits = selectedStudentForAi.traits.join(", ") + " / " + selectedStudentForAi.teacherMemo;
 
     const payload = {
@@ -295,7 +295,7 @@ function setupAiPanel() {
 
     const index = STUDENTS.findIndex(s => s.id === selectedStudentForAi.id);
     const alias = "학생 " + String.fromCharCode(65 + index);
-    const gradeSummary = Object.entries(selectedStudentForAi.grades).map(([k, v]) => \`\${k}: \${v}\`).join(", ");
+    const gradeSummary = Object.entries(selectedStudentForAi.grades).map(([k, v]) => `${k}: ${v}`).join(", ");
     const learningTraits = selectedStudentForAi.traits.join(", ") + " / " + selectedStudentForAi.teacherMemo;
 
     const payload = {
@@ -319,12 +319,12 @@ function setupAiPanel() {
       
       const data = await response.json();
       if (data.success) {
-        aiResultArea.innerHTML = \`<pre class="ai-result-text">\${data.result}</pre>\`;
+        aiResultArea.innerHTML = `<pre class="ai-result-text">${data.result}</pre>`;
       } else {
-        aiResultArea.innerHTML = \`<p class="error-text">AI 상담 전략을 불러오지 못했습니다. API 키 또는 Vercel 환경 변수를 확인해주세요.</p>\`;
+        aiResultArea.innerHTML = `<p class="error-text">AI 상담 전략을 불러오지 못했습니다. API 키 또는 Vercel 환경 변수를 확인해주세요.</p>`;
       }
     } catch (error) {
-      aiResultArea.innerHTML = \`<p class="error-text">AI 상담 전략을 불러오지 못했습니다. API 키 또는 Vercel 환경 변수를 확인해주세요.</p>\`;
+      aiResultArea.innerHTML = `<p class="error-text">AI 상담 전략을 불러오지 못했습니다. API 키 또는 Vercel 환경 변수를 확인해주세요.</p>`;
     } finally {
       requestAiButton.disabled = false;
     }
